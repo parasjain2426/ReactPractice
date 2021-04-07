@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import TodoContainer from './components/TodoContainer';
+import Pagination from './components/Pagination';
+import ChartContainer from './containers/ChartContainer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <nav>
+          <ul style={{display:'flex',justifyContent:'space-evenly',backgroundColor:'black',padding:'10px'}}>
+            <li>
+              <Link to="/todoapp" style={{color:'white',textDecoration:'none'}}>Todo App</Link>
+            </li>
+            <li>
+              <Link to="/charts"  style={{color:'white',textDecoration:'none'}}>Charts</Link>
+            </li>
+            <li>
+              <Link to="/pagination"  style={{color:'white',textDecoration:'none'}}>Paginate example</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/todoapp">
+            <TodoContainer/>
+          </Route>
+          <Route path="/charts">
+            <ChartContainer/>
+          </Route>
+          <Route path="/pagination">
+            <Pagination/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
