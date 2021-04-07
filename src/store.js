@@ -1,4 +1,4 @@
 import { createStore } from "redux";
-import { chartReducer } from "./reducers/chartReducer";
+import rootReducer from "./reducers/rootReducer";
 
-export const store = createStore(chartReducer);
+export const store = createStore(rootReducer);
