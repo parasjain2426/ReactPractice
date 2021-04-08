@@ -82,7 +82,7 @@ class ChartPrac extends Component {
               </Link>
             </li>
           </ul>
-          <ChildRoutes />
+          <ChildRoutes path={path} />
         </Router>
       </div>
     );
