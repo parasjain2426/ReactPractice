@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const PaginationExample = (props) => {
   console.log(props);
+  console.log("From Pagination");
   let pages = [];
   const contentPerPage = 50;
   // const [currentPage, setCurrentPage] = useState(1);

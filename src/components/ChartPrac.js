@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  withRouter
-} from "react-router-dom";
-import ParticularChart from "./ParticularChart";
+import { BrowserRouter as Router, Link, withRouter } from "react-router-dom";
+import { ChildRoutes } from "../ChildRoutes";
 
 class ChartPrac extends Component {
   componentDidMount() {
@@ -29,8 +23,8 @@ class ChartPrac extends Component {
     // })
   }
   render() {
-    console.log(this.props);
     const { url, path } = this.props.match;
+    console.log(url);
     return (
       <div
         style={{
@@ -47,23 +41,48 @@ class ChartPrac extends Component {
             }}
           >
             <li>
-              <Link to={`${url}/Bar`}>Bar Graph</Link>
+              {/* <Link to={`${url}/Bar`}>Bar Graph</Link> */}
+              <Link
+                to={{
+                  pathname: `${url}/Bar`,
+                  data: this.props.chartData.chartReducer
+                }}
+              >
+                Bar Graph
+              </Link>
             </li>
             <li>
-              <Link to={`${url}/Line`}>Line Graph</Link>
+              <Link
+                to={{
+                  pathname: `${url}/Line`,
+                  data: this.props.chartData.chartReducer
+                }}
+              >
+                Line Graph
+              </Link>
             </li>
             <li>
-              <Link to={`${url}/Pie`}>Pie Chart</Link>
+              <Link
+                to={{
+                  pathname: `${url}/Pie`,
+                  data: this.props.chartData.chartReducer
+                }}
+              >
+                Pie Chart
+              </Link>
             </li>
             <li>
-              <Link to={`${url}/Doughnut`}>Doughnut Graph</Link>
+              <Link
+                to={{
+                  pathname: `${url}/Doughnut`,
+                  data: this.props.chartData.chartReducer
+                }}
+              >
+                Doughnut Graph
+              </Link>
             </li>
           </ul>
-          <Switch>
-            <Route path={`${path}/:topicId`}>
-              <ParticularChart data={this.props.chartData.chartReducer} />
-            </Route>
-          </Switch>
+          <ChildRoutes />
         </Router>
       </div>
     );

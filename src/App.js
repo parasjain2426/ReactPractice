@@ -1,8 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import TodoContainer from "./components/TodoContainer";
-import ChartContainer from "./containers/ChartContainer";
-import PageContainer from "./containers/PageContainer";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { RoutingMap } from "./RoutingMap";
 
 function App() {
   return (
@@ -43,17 +41,7 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/todoapp">
-            <TodoContainer />
-          </Route>
-          <Route path="/charts">
-            <ChartContainer />
-          </Route>
-          <Route path="/pagination">
-            <PageContainer />
-          </Route>
-        </Switch>
+        <RoutingMap />
       </Router>
     </div>
   );
