@@ -1,9 +1,10 @@
 import React from "react";
 import authManager from "../authManagement/authManager";
 
-export const LogOut = () => {
+export const LogOut = (props) => {
+  console.log(props);
   const logoutHandler = () => {
-    authManager.logout();
+    // authManager.logout();
     window.location.reload();
   };
   if (authManager.isLogged) {
@@ -13,6 +14,6 @@ export const LogOut = () => {
       </div>
     );
   } else {
-    return <p>Page ends</p>;
+    return <p>Made by Paras Jain</p>;
   }
 };

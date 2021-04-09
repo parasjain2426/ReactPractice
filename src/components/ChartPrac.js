@@ -24,7 +24,6 @@ class ChartPrac extends Component {
   }
   render() {
     const { url, path } = this.props.match;
-    console.log(url);
     return (
       <div
         style={{

@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Link,
+  NavLink,
+  useRouteMatch
+} from "react-router-dom";
+import { ChildRoutes } from "../ChildRoutes";
+import { PaginationChildRoute } from "../PaginationChildRoute";
 
 const PaginationExample = (props) => {
-  console.log(props);
-  console.log("From Pagination");
+  // console.log(props);
+  // console.log("From Pagination");
+  let { url, path } = useRouteMatch();
   let pages = [];
   const contentPerPage = 50;
   // const [currentPage, setCurrentPage] = useState(1);
@@ -88,6 +97,12 @@ const PaginationExample = (props) => {
           <li>Next</li>
         </button>
       </ul>
+      <div>
+        <Router>
+          <NavLink to={`${url}/logOut`}>LogOut</NavLink>
+          <PaginationChildRoute path={`${path}`} />
+        </Router>
+      </div>
       <div>Page ends</div>
     </div>
   );
