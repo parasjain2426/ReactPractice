@@ -1,10 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import authManager from "../authManagement/authManager";
 
 export const Home = (props) => {
+  let { push } = useHistory();
   const loginHandler = () => {
     authManager.login();
-    props.history.push("/todoapp");
+    push("/todoapp");
   };
   return (
     <div>
