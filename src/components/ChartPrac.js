@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, withRouter } from "react-router-dom";
-import { ChildRoutes } from "../ChildRoutes";
+import { ChildRoutes } from "../Routing/ChildRoutes";
 
 class ChartPrac extends Component {
   componentDidMount() {

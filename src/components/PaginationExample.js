@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
-  Link,
   NavLink,
   useRouteMatch
 } from "react-router-dom";
-import { ChildRoutes } from "../ChildRoutes";
-import { PaginationChildRoute } from "../PaginationChildRoute";
+import { PaginationChildRoute } from "../Routing/PaginationChildRoute";
 
 const PaginationExample = (props) => {
   // console.log(props);

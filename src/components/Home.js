@@ -10,7 +10,7 @@ export const Home = (props) => {
   };
   return (
     <div>
-      <h2>Welcome to the app!</h2>
+      <h2>Hey! EveryOne</h2>
       <p>Please login to see the other apps waiting..!!</p>
       <button onClick={loginHandler}>Login</button>
     </div>
