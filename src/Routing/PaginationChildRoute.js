@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { LogOut } from "./components/LogOut";
+import { LogOut } from "../components/LogOut";
 
 export const PaginationChildRoute = ({ path }) => {
   console.log(path);

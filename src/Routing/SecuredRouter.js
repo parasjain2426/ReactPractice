@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import authManager from "./authManagement/authManager";
+import authManager from "../authManagement/authManager";
 
 export const SecuredRouter = (props) => {
   return (

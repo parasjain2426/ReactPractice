@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { RoutingMap } from "./RoutingMap";
+import { RoutingMap } from "./Routing/RoutingMap";
 
 function App() {
   return (
