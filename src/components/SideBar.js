@@ -8,25 +8,28 @@ export const SideBar = () => {
     $(document).ready(() => {
       // alert("It is check");
       //here jquery can work
+      $("#open").click(() => {
+        $("#sideNav").animate(sideOpenStyle, "slow", () => {
+          setShowContent(true);
+        });
+      });
+      $("#close").click(() => {
+        $("#sideNav").animate(sideStyle, "fast", () => {
+          setShowContent(false);
+        });
+      });
     });
   }, []);
-  const [style, setStyle] = useState(sideStyle);
+  // const [style, setStyle] = useState(sideStyle);
   const [showContent, setShowContent] = useState(false);
-  const openHandler = () => {
-    setStyle({
-      zIndex: 1,
-      position: "absolute",
-      width: "20%",
-      height: "100%",
-      backgroundColor: "black",
-      color: "white"
-    });
-    setShowContent(true);
-  };
-  const closeHandler = () => {
-    setStyle(sideStyle);
-    setShowContent(false);
-  };
+  // const openHandler = () => {
+  //   setStyle(sideOpenStyle);
+  //   setShowContent(true);
+  // };
+  // const closeHandler = () => {
+  //   setStyle(sideStyle);
+  //   setShowContent(false);
+  // };
   return (
     <div
       style={{
@@ -34,16 +37,17 @@ export const SideBar = () => {
         justifyContent: "space-between"
       }}
     >
-      <button style={openStyle} onClick={openHandler}>
+      <button style={openStyle} id="open">
         <FaAngleRight />
       </button>
-      <div style={style}>
+      <div style={sideStyle} id="sideNav">
         <div style={{ display: showContent ? "block" : "none" }}>
-          <div style={{}}>
+          <div>
             <button
-              onClick={closeHandler}
+              id="close"
               style={{
-                float: "left"
+                float: "left",
+                margin: "0px"
               }}
             >
               <FaAngleLeft />
@@ -90,13 +94,24 @@ export const SideBar = () => {
   );
 };
 const openStyle = {
-  margin: "2px 15px"
+  zIndex: "1",
+  margin: "0px",
+  position: "absolute"
 };
 const sideStyle = {
+  zIndex: "0",
   position: "absolute",
-  width: "2%",
+  width: "3%",
   height: "100%",
   backgroundColor: "black",
   color: "white",
   display: "flex"
+};
+const sideOpenStyle = {
+  zIndex: "1",
+  position: "absolute",
+  width: "20%",
+  height: "100%",
+  backgroundColor: "black",
+  color: "white"
 };
