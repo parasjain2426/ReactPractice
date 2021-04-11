@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { $ } from "react-jquery-plugin";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 export const SideBar = () => {
+  useEffect(() => {
+    $(document).ready(() => {
+      // alert("It is check");
+      //here jquery can work
+    });
+  }, []);
   const [style, setStyle] = useState(sideStyle);
   const [showContent, setShowContent] = useState(false);
   const openHandler = () => {
@@ -16,14 +24,7 @@ export const SideBar = () => {
     setShowContent(true);
   };
   const closeHandler = () => {
-    setStyle({
-      zIndex: 1,
-      position: "absolute",
-      width: "0%",
-      height: "100%",
-      backgroundColor: "black",
-      color: "white"
-    });
+    setStyle(sideStyle);
     setShowContent(false);
   };
   return (
@@ -34,7 +35,7 @@ export const SideBar = () => {
       }}
     >
       <button style={openStyle} onClick={openHandler}>
-        Open
+        <FaAngleRight />
       </button>
       <div style={style}>
         <div style={{ display: showContent ? "block" : "none" }}>
@@ -42,12 +43,10 @@ export const SideBar = () => {
             <button
               onClick={closeHandler}
               style={{
-                margin: "0px",
-                padding: "5px",
                 float: "left"
               }}
             >
-              Close
+              <FaAngleLeft />
             </button>
           </div>
           <div style={{ margin: "20px 0px", clear: "both" }}>
@@ -91,14 +90,11 @@ export const SideBar = () => {
   );
 };
 const openStyle = {
-  textAlign: "left",
-  margin: "0px",
-  padding: "5px",
-  width: "50px"
+  margin: "2px 15px"
 };
 const sideStyle = {
   position: "absolute",
-  width: "0%",
+  width: "2%",
   height: "100%",
   backgroundColor: "black",
   color: "white",
