@@ -96,11 +96,11 @@ export const SideBar = () => {
 const openStyle = {
   zIndex: "1",
   margin: "0px",
-  position: "absolute"
+  position: "fixed"
 };
 const sideStyle = {
   zIndex: "0",
-  position: "absolute",
+  position: "fixed",
   width: "3%",
   height: "100%",
   backgroundColor: "black",
@@ -109,7 +109,7 @@ const sideStyle = {
 };
 const sideOpenStyle = {
   zIndex: "1",
-  position: "absolute",
+  position: "fixed",
   width: "20%",
   height: "100%",
   backgroundColor: "black",
