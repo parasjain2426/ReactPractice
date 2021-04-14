@@ -5,7 +5,10 @@ import TodoList from "./TodoList";
 import InputTodo from "./InputTodo";
 import "../App.css";
 import { InputContext } from "../contexts/InputContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+toast.configure();
 class TodoContainer extends Component {
   constructor() {
     super();
@@ -18,7 +21,14 @@ class TodoContainer extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
       .then((response) => response.json())
-      .then((data) => this.setState({ todos: data }));
+      .then((data) => this.setState({ todos: data }))
+      .catch((error) => {
+        toast.error(error.message, {
+          hideProgressBar: true,
+          position: "bottom-center",
+          autoClose: 2000
+        });
+      });
   }
 
   addTodo = (todoTitle) => {
@@ -31,6 +41,11 @@ class TodoContainer extends Component {
     this.setState({
       // id: this.state.id+1,
       todos: [...this.state.todos, newTodo]
+    });
+
+    toast.success("Added Successfully", {
+      autoClose: 2000,
+      position: "top-center"
     });
   };
 

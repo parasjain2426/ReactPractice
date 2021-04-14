@@ -10,7 +10,7 @@ export const SecuredRouter = (props) => {
         authManager.isLogged ? (
           <props.component {...data} />
         ) : (
-          <Redirect to={{ pathname: "/" }} />
+          <Redirect to={{ pathname: "/", notify: true }} />
         )
       }
     ></Route>

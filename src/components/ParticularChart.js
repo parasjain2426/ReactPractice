@@ -6,7 +6,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 
 const ParticularChart = ({ location }) => {
-  let { topicsId } = useParams();
+  const { topicsId } = useParams();
   //   const [graph, setGraph] = useState(React.createElement(`${topicId}`));
   if (topicsId === "Bar") {
     return <Bar data={location.data} />;
